@@ -26,4 +26,4 @@ for i,j in zip(Y_test,prediction):
 #accuaracy of the prediction 
 print('\n')
 print('Accuaracy of the prediction:')
-print(acs(prediction, Y_test))
+print(accuracy_score(prediction, Y_test))
