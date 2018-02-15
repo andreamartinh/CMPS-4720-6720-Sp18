@@ -55,12 +55,20 @@ def cleanFile(fileLines):
     return temp3, temp4
 
 #main
+file = open('train.txt', 'r') 
+fileLinesTrain = file.readlines()
+x_train, y_train = cleanFile(fileLinesTrain)
+
+x_train = np.array(x_train)
+y_train = np.array(y_train)
+
 file2 = open('SPECT.test.txt', 'r') 
 fileLinesTest = file2.readlines()
 x_test, y_test= cleanFile(fileLinesTest)
 
 x_test = np.array(x_test)
 y_test = np.array(y_test)
+
 
 test = Perecptron(x_train,0.1)
 test.fit(x_train, y_train)
