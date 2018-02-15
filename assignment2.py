@@ -3,7 +3,7 @@ import numpy as np
 from numpy import array, dot, random
 
 
-class Perecptron():
+class Perceptron():
     def __init__(self, x_train, lr):
         self.W = np.zeros(len(x_train[0])+1)
         self.lr = lr
@@ -55,6 +55,7 @@ def cleanFile(fileLines):
     return temp3, temp4
 
 #main
+#cleaning file
 file = open('train.txt', 'r') 
 fileLinesTrain = file.readlines()
 x_train, y_train = cleanFile(fileLinesTrain)
@@ -69,9 +70,9 @@ x_test, y_test= cleanFile(fileLinesTest)
 x_test = np.array(x_test)
 y_test = np.array(y_test)
 
-
-test = Perecptron(x_train,0.1)
-test.fit(x_train, y_train)
+#implement the single layer perceptron
+model = Perceptron(x_train,0.1)
+model.fit(x_train, y_train)
 predicted = []
 for i in range(len(x_test)):
     p = test.predict(x_test[i])
